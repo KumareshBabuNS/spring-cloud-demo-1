@@ -4,55 +4,71 @@
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
 </head>
 <body>
 	<div class="container">
 		<br/>
 		<div class="jumbotron">
 	    	    <h1>Spring Cloud Demo Application</h1>
-			<p>A <a href="https://github.com/jaimegag/spring-cloud-demo">Spring application</a> 
-			   that uses <a href="http://projects.spring.io/spring-cloud">Spring Cloud</a> to connect to 
-			   cloud services and get information about cloud environment</p>
+			<p>A <a href="https://github.com/jaimegag/spring-cloud-demo">Spring application, </a>
+			   Powered by <a href="http://projects.spring.io/spring-boot/">Spring Boot</a> and  
+			   <a href="http://projects.spring.io/spring-cloud/">Spring Cloud</a></p>
 		</div>
-		<h2>Cloud Services</h2>
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>Service Connector Type</th>
-					<th>Connection address</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="service : ${services}">
-					<td><strong th:text="${service.key.name}"></strong></td>
-		    			<td th:text="${service.value}" />
-		    		</tr>
-	    		</tbody>
-	    </table>
-	    
-	    <h2>Application Instance Info</h2>
-	    <div class="row">
-	    		<strong class="col-sm-2">App Id:</strong>
-	    		<p class="col-sm-10" th:text="${instanceInfo.appId}">appId</p>
-	    </div>
-	    <div class="row">
-	    		<strong class="col-sm-2">Instance Id:</strong>	    
-	    		<p class="col-sm-10" th:text="${instanceInfo.instanceId}">instanceId</p>
-	    </div>
-	    <div class="row">
-	    		<strong class="col-sm-2">Properties:</strong>
-	    		<div class="col-sm-10">	    
-				<table class="table table-striped">
-					<tr th:each="prop : ${instanceInfo.properties}">
-						<td><strong th:text="${prop.key}"></strong></td>				
-			    			<td th:text="${prop.value}" />
-			    		</tr>
-			    </table>
-		    </div>
-	    </div>
-	    
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+		<div class="container sub">
+			<label>
+				<a href="/visits" class="btn btn-warning" id="visitsButton">Visits Log</a>
+			</label>
+			<label class="right">
+				<a href="/killSwitch" class="btn btn-danger btn-large">Kill Switch</a>
+			</label>
+		</div>
+
+		<!-- div class="container sub">
+			<h2>Cloud Services</h2>
+			<table class="table table-striped" id="connectors">
+				<thead>
+					<tr>
+						<th>Service Connector Type</th>
+						<th>Connection address</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="service : ${services}">
+						<td><strong th:text="${service.key.name}"></strong></td>
+						<td th:text="${service.value}" />
+					</tr>
+				</tbody>
+			</table>
+		</div -->
+
+		<div class="container sub">
+			<h2>Application Instance Info</h2>
+			<div class="row">
+				<strong class="col-sm-2">App Id:</strong>
+				<p class="col-sm-10" th:text="${instanceInfo.appId}">appId</p>
+			</div>
+			<div class="row">
+				<strong class="col-sm-2">Instance Id:</strong>
+				<p class="col-sm-10" th:text="${instanceInfo.instanceId}">instanceId</p>
+			</div>
+			<div class="row">
+				<strong class="col-sm-2">Properties:</strong>
+				<div class="col-sm-10">
+					<table class="table table-striped">
+						<tr th:each="prop : ${instanceInfo.properties}">
+							<td><strong th:text="${prop.key}"></strong></td>
+							<td th:text="${prop.value}" />
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	    <script src="js/main.js"></script>
 	</div>    
 </body>
 </html>

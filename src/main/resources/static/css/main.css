@@ -1,0 +1,43 @@
+body {
+	background: black;
+}
+
+h2.centered, h1.centered {
+	text-align: center;
+}
+
+img.powered {
+	width: 50px;
+}
+
+div.container {
+	background: #00a79c;
+}
+
+div.container .sub {
+	width: 100%;
+    margin: 20px auto;
+    padding: 20px 20px;
+    border-radius: 6px;
+    background: lightgray;
+}
+
+div.centered {
+	text-align: center;
+}
+
+label {
+	margin: 0px 80px;
+}
+
+.right {
+	float: right !important;
+}
+
+input {
+	height: 34px;
+}
+
+td.left {
+	width: 35%;
+}

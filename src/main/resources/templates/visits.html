@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Serving Web Content</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+	<div class="container">
+		<br/>
+		<div class="jumbotron">
+	    	    <h1 class="centered">Visits Log</h1>
+	    	    <h2 class="centered">Powered by Redis <img src="images/redis.png" class="powered" /></h2>
+		</div>
+
+		<div class="container sub">
+			<label>
+				<input type="text" placehoder="Name" name="name" id="visitName"/>
+				<a href="javascript:void(0);" class="btn btn-success" id="logVisitButton">Log the Visit</a>
+			</label>
+			<label class="right">
+				<a href="/" class="btn btn-primary" id="backButton">Back Home</a>
+			</label>
+		</div>
+
+		<div class="container sub" th:if="${noRedisAvailable}">
+			<div class="alert alert-danger centered">
+  				<strong>No Redis service available!</strong>
+			</div>
+		</div>
+		<div class="container sub" th:unless="${noRedisAvailable}">
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<th>Visit Timestamp</th>
+						<th>Visitor Data</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="item : ${store}">
+						<td class="left"><strong th:text="${item.key}"></strong></td>
+						<td th:text="${item.value}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	    <script src="js/main.js"></script>
+	</div>    
+</body>
+</html>
